@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    
+    margin: 0;
+    padding: 0;
+}
+
+.marcar {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.jogar{
+    display: grid;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.titulo{
+    display: grid;
+    justify-content: center;
+}
+
+.subtitulo{
+    display: grid;
+    justify-content: center;
+}
+
+.selecionar{
+    width: 100%;
+    height: 150px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.status-game{
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.numero-vitorias{
+    margin-right: 80px;
+}
+
+.img-vitoria{
+    width: 60px;
+    height: 60px;
+}
+.img-derrota{
+    width: 60px;
+    height: 60px;
+}
+
+.texto-vitoria{
+    font-size: 50px;
+}
+
+.texto-derrota{
+    font-size: 50px;
+}
+
+button{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+ }
+
+.img-ox{
+    margin: 5px;
+    width: 150px;
+    height: 150px;
+}
+
