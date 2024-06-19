@@ -13,41 +13,26 @@
     <div class="titulo">
         <h1>Jogo da velha</h1>
     </div>
-    <div class="subtitulo">
+    <div class="subtitulo" id="subtitulo">
         <h4>Selecione se você quer ser o X ou O</h4>
     </div>
-    <div class="selecionar">
-        <button><img src="img/o.png" class="img-ox"></button>
-        <button><img src="img/x.png" class="img-ox"></button>
+    <div class="selecionar" id="selecionar">
+        <button onclick="selecionarO()" id="selecionar-o"><img src="img/o.png" class="img-ox"></button>
+        <button onclick="selecionarX()" id="selecionar-x"><img src="img/x.png" class="img-ox"></button>
     </div>
-    <div class="container">
-        <input type="image" class="marcar" src="img/branco.avif" alt="Submit" />
-        <input type="image" class="marcar" src="img/branco.avif" alt="Submit" />
-        <input type="image" class="marcar" src="img/branco.avif" alt="Submit" />
-        <input type="image" class="marcar" src="img/branco.avif" alt="Submit" />
-        <input type="image" class="marcar" src="img/branco.avif" alt="Submit" />
-        <input type="image" class="marcar" src="img/branco.avif" alt="Submit" />
-        <input type="image" class="marcar" src="img/branco.avif" alt="Submit" />
-        <input type="image" class="marcar" src="img/branco.avif" alt="Submit" />
-        <input type="image" class="marcar" src="img/branco.avif" alt="Submit" />
+    <div class="jogo-da-velha" id="jogo-da-velha">
+        
     </div>
 
-    <div class="jogar">
-        <button class="btn btn-dark">JOGAR</button>
+    <div class="jogar" id="div-jogar">
+        <button class="btn btn-dark" onclick="jogar()" id="jogar" >JOGAR</button>
     </div>
 
-    <div class="status-game">
-        <div class="numero-vitorias">
-            <img src="img/trofeu.jpg" class="img-vitoria">
-            <strong class="texto-vitoria">6</strong>
-        </div>
-
-        <div class="numero-derrotas">
-            <img src="img/derrotas.webp" class="img-derrota">
-            <strong class="texto-derrota">6</strong>
-        </div>
+    <div class="status-game" id="status-game">
+        
     </div>
     <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
