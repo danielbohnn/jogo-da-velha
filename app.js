@@ -2,7 +2,8 @@ validacao = ""
 let jaMarcados = []
 let timeX = []
 let timeO = []
-
+let statusgame = document.getElementById('status-game')
+vitoria = derrota = 0
 
 function selecionarX() {
     let selecionar = document.getElementById("selecionar")
@@ -22,6 +23,7 @@ function selecionarO() {
 function jogoDaVelha(id) {
     let marcar = document.getElementById("marcar-" + id)
     let erro = document.getElementById('erro')
+    let jogoDaVelha = document.getElementById("jogo-da-velha")
     let numero = numeroAleatorio()
     let possibilidades =[
         [0, 1, 2],
@@ -37,7 +39,7 @@ function jogoDaVelha(id) {
       
 
     if (jaMarcados.includes(id)) {
-        alert("ja foi marcado essa")
+        erro.innerHTML = '<p>Essa opção já foi marcada!'
     } else {
         if (validacao == "o") {
             marcar.innerHTML = '<img class="marcar" src="img/o.png" disable>'
@@ -55,14 +57,25 @@ function jogoDaVelha(id) {
                         verificar++
 
                         if(verificar == 3){
-                            alert("ganhou")
-                            
+                            Swal.fire({
+                                title: "Você ganhou!",
+                                icon: "success",
+                            }).then((resultado) => {
+                                if (resultado.isConfirmed) {
+                                    vitoria++
+                                    statusgame.innerHTML =
+                                    '<div class="numero-vitorias"><img src="img/trofeu.jpg" class="img-vitoria"><strong class="texto-vitoria">'+ vitoria + '</strong></div><div class="numero-derrotas"><img src="img/derrotas.webp" class="img-derrota"><strong class="texto-derrota">'+ derrota +'</strong></div>'
+
+                                    jogoDaVelha.innerHTML =
+                                    '<button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(0)" id="marcar-0" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(1)" id="marcar-1" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(2)" id="marcar-2" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(3)" id="marcar-3" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(4)" id="marcar-4" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(5)" id="marcar-5" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(6)" id="marcar-6" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(7)" id="marcar-7" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(8)" id="marcar-8" ></button>'
+                                    jaMarcados = []
+                                    timeX = []
+                                    timeO = []
+                                }
+                            })
                         }
                     }
                 }
-                
-                    
-                
             }
 
             if(jaMarcados.length < 8){
@@ -75,7 +88,30 @@ function jogoDaVelha(id) {
                 marcarComputador.innerHTML = '<img class="marcar" src="img/x.png" >'
                 jaMarcados.push(numero)
                 timeX.push(numero)
+                
+                for(let i = 0; i < 8; i++){
+                    let possibilidadesVencer = possibilidades[i]
+                    verificar = 0
     
+                    for(let m = 0; m < 3; m++){
+                        let verificarGanhar = possibilidadesVencer[m]
+    
+                        if(timeX.includes(verificarGanhar)){
+                            verificar++
+    
+                            if(verificar == 3){
+                                Swal.fire({
+                                    title: "Você perdeu!",
+                                    icon: "error",
+                                }).then((resultado) => {
+                                    if (resultado.isConfirmed) {
+                                        
+                                    }
+                                })
+                            }
+                        }
+                    }
+                }
             }
         } else {
             marcar.innerHTML = '<img class="marcar" src="img/x.png" >'
@@ -94,6 +130,8 @@ function jogoDaVelha(id) {
         }
     }
 }
+
+
 
 function numeroAleatorio() {
     return Math.floor(Math.random() * 9)
