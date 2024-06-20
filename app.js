@@ -1,4 +1,9 @@
 validacao = ""
+let jaMarcados = []
+let timeX = []
+let timeO = []
+
+
 function selecionarX() {
     let selecionar = document.getElementById("selecionar")
 
@@ -15,11 +20,83 @@ function selecionarO() {
 }
 
 function jogoDaVelha(id) {
+    let marcar = document.getElementById("marcar-" + id)
+    let erro = document.getElementById('erro')
+    let numero = numeroAleatorio()
+    let possibilidades =[
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
     
+      
+
+    if (jaMarcados.includes(id)) {
+        alert("ja foi marcado essa")
+    } else {
+        if (validacao == "o") {
+            marcar.innerHTML = '<img class="marcar" src="img/o.png" disable>'
+            timeO.push(id)
+            jaMarcados.push(id)
+
+            for(let i = 0; i < 8; i++){
+                let possibilidadesVencer = possibilidades[i]
+                verificar = 0
+
+                for(let m = 0; m < 3; m++){
+                    let verificarGanhar = possibilidadesVencer[m]
+
+                    if(timeO.includes(verificarGanhar)){
+                        verificar++
+
+                        if(verificar == 3){
+                            alert("ganhou")
+                            
+                        }
+                    }
+                }
+                
+                    
+                
+            }
+
+            if(jaMarcados.length < 8){
+                while (jaMarcados.includes(numero) || marcar == numero) {
+                    numero = numeroAleatorio()
+    
+                }
+    
+                let marcarComputador = document.getElementById("marcar-" + numero)
+                marcarComputador.innerHTML = '<img class="marcar" src="img/x.png" >'
+                jaMarcados.push(numero)
+                timeX.push(numero)
+    
+            }
+        } else {
+            marcar.innerHTML = '<img class="marcar" src="img/x.png" >'
+            jaMarcados.push(id)
+
+            if(jaMarcados.length < 8){
+                while (jaMarcados.includes(numero) || marcar == numero) {
+                    numero = numeroAleatorio()
+    
+                }
+    
+                let marcarComputador = document.getElementById("marcar-" + numero)
+                marcarComputador.innerHTML = '<img class="marcar" src="img/x.png" >'
+                jaMarcados.push(numero)
+            }
+        }
+    }
 }
 
-function numeroAleatorio(){
-    return Math.floor(Math.random() * 10)
+function numeroAleatorio() {
+    return Math.floor(Math.random() * 9)
 }
 
 function jogar() {
@@ -44,8 +121,8 @@ function jogar() {
         }
 
         jogoDaVelha.innerHTML =
-            '<button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(1)" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(2)" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(3)" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(4)" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(5)" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(6)" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(7)" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(8)" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(9)" ></button>'
-        
+            '<button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(0)" id="marcar-0" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(1)" id="marcar-1" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(2)" id="marcar-2" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(3)" id="marcar-3" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(4)" id="marcar-4" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(5)" id="marcar-5" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(6)" id="marcar-6" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(7)" id="marcar-7" ></button><button type="image" class="marcar" src="img/branco.avif" onclick="jogoDaVelha(8)" id="marcar-8" ></button>'
+
         statusgame.innerHTML =
             '<div class="numero-vitorias"><img src="img/trofeu.jpg" class="img-vitoria"><strong class="texto-vitoria">0</strong></div><div class="numero-derrotas"><img src="img/derrotas.webp" class="img-derrota"><strong class="texto-derrota">0</strong></div>'
     }
