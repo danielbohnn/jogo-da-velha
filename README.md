@@ -1,1 +1,3 @@
 # jogo-da-velha
+
+O meu projeto de Jogo da Velha é uma aplicação web interativa desenvolvida utilizando HTML, CSS e JavaScript. O jogo oferece uma interface amigável e responsiva, aprimorada pelo uso do framework Bootstrap, que facilita a estilização e a disposição dos elementos na tela. Para adicionar uma camada extra de interatividade e feedback visual, utilizei o SweetAlert2, que fornece alertas e mensagens personalizadas quando um jogador vence ou quando ocorre um empate. A lógica do jogo é gerenciada com JavaScript, assegurando que as regras clássicas do Jogo da Velha sejam seguidas e que as jogadas sejam corretamente validadas e exibidas.
