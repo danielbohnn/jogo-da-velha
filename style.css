@@ -1,8 +1,5 @@
 * {
-    box-sizing: border-box;
-    
-    margin: 0;
-    padding: 0;
+
 }
 
 .marcar {
@@ -95,3 +92,6 @@ button{
     height: 150px;
 }
 
+.h4-erro{
+    color: red;
+}
