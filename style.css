@@ -12,7 +12,7 @@
     position: relative;
 }
 
-.container {
+#container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,5 +93,8 @@ button{
 }
 
 .h4-erro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: red;
 }
