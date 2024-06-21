@@ -61,6 +61,7 @@ function jogoDaVelha(id) {
                             Swal.fire({
                                 title: "Você ganhou!",
                                 icon: "success",
+                                allowOutsideClick: false,
                             }).then((resultado) => {
                                 if (resultado.isConfirmed) {
                                     vitoria++
@@ -104,6 +105,7 @@ function jogoDaVelha(id) {
                                 Swal.fire({
                                     title: "Você perdeu!",
                                     icon: "error",
+                                    allowOutsideClick: false,
                                 }).then((resultado) => {
                                     if (resultado.isConfirmed) {
                                         derrota++
@@ -127,6 +129,7 @@ function jogoDaVelha(id) {
                 Swal.fire({
                     title: "Empate!",
                     icon: "info",
+                    allowOutsideClick: false,
                 }).then((resultado) => {
                     if (resultado.isConfirmed) {
                         statusgame.innerHTML =
@@ -161,6 +164,7 @@ function jogoDaVelha(id) {
                             Swal.fire({
                                 title: "Você ganhou!",
                                 icon: "success",
+                                allowOutsideClick: false,
                             }).then((resultado) => {
                                 if (resultado.isConfirmed) {
                                     vitoria++
@@ -204,6 +208,7 @@ function jogoDaVelha(id) {
                                 Swal.fire({
                                     title: "Você perdeu!",
                                     icon: "error",
+                                    allowOutsideClick: false,
                                 }).then((resultado) => {
                                     if (resultado.isConfirmed) {
                                         derrota++
@@ -226,6 +231,7 @@ function jogoDaVelha(id) {
                 Swal.fire({
                     title: "Empate!",
                     icon: "info",
+                    allowOutsideClick: false,
                 }).then((resultado) => {
                     if (resultado.isConfirmed) {
                         statusgame.innerHTML =
