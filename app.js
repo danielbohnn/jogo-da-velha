@@ -5,6 +5,7 @@ let timeO = []
 let statusgame = document.getElementById('status-game')
 vitoria = derrota = 0
 
+
 function selecionarX() {
     let selecionar = document.getElementById("selecionar")
 
@@ -21,6 +22,7 @@ function selecionarO() {
 }
 
 function jogoDaVelha(id) {
+    let verificarEmpate = false
     let marcar = document.getElementById("marcar-" + id)
     let erro = document.getElementById('erro')
     let jogoDaVelha = document.getElementById("jogo-da-velha")
@@ -58,6 +60,7 @@ function jogoDaVelha(id) {
                         verificar++
 
                         if (verificar == 3) {
+                            verificarEmpate = true
                             Swal.fire({
                                 title: "Você ganhou!",
                                 icon: "success",
@@ -102,6 +105,7 @@ function jogoDaVelha(id) {
                             verificar++
 
                             if (verificar == 3) {
+                                verificarEmpate = true
                                 Swal.fire({
                                     title: "Você perdeu!",
                                     icon: "error",
@@ -125,7 +129,7 @@ function jogoDaVelha(id) {
                 }
             }
 
-            if (jaMarcados.length == 9) {
+            if (jaMarcados.length == 9 && verificarEmpate == false) {
                 Swal.fire({
                     title: "Empate!",
                     icon: "info",
@@ -161,6 +165,7 @@ function jogoDaVelha(id) {
                         verificar++
 
                         if (verificar == 3) {
+                            verificarEmpate = true
                             Swal.fire({
                                 title: "Você ganhou!",
                                 icon: "success",
@@ -205,6 +210,7 @@ function jogoDaVelha(id) {
                             verificar++
 
                             if (verificar == 3) {
+                                verificarEmpate = true
                                 Swal.fire({
                                     title: "Você perdeu!",
                                     icon: "error",
@@ -227,7 +233,7 @@ function jogoDaVelha(id) {
                     }
                 }
             }
-            if (jaMarcados.length == 9) {
+            if (jaMarcados.length == 9 && verificarEmpate == false) {
                 Swal.fire({
                     title: "Empate!",
                     icon: "info",
